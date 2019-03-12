@@ -6,4 +6,4 @@ set -e
 # docker pull kwmt/flutter:base
 
 # docker build --tag kwmt/flutter:base base
-docker build --tag kwmt/flutter:1.2.2  --tag kwmt/flutter:latest ./
+docker build --tag kwmt/flutter:1.3.9  --tag kwmt/flutter:latest ./

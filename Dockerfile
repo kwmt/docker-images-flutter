@@ -19,7 +19,7 @@ RUN sudo locale-gen en_US "en_US.UTF-8" \
 ENV LANG en_US.UTF-8
 
 ENV FLUTTER_HOME ${HOME}/sdks/flutter
-ENV FLUTTER_VERSION 1.5.7
+ENV FLUTTER_VERSION 1.6.0
 
 RUN git clone --branch v${FLUTTER_VERSION} https://github.com/flutter/flutter.git ${FLUTTER_HOME}
 

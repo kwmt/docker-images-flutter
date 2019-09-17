@@ -6,4 +6,5 @@ set -e
 # docker pull kwmt/flutter:base
 
 # docker build --tag kwmt/flutter:base base
-docker build --tag kwmt/flutter:v1.9.1+hotfix.2  --tag kwmt/flutter:latest ./
+export FLUTTER_VERSION="v1.9.1+hotfix.2"
+docker build --tag kwmt/flutter:$FLUTTER_VERSION  --tag kwmt/flutter:latest ./

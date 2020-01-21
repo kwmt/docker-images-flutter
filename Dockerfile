@@ -8,7 +8,7 @@ RUN sudo apt-get update \
 RUN sudo apt-get update \
     && sudo apt-get install git \
     && sudo git clone https://github.com/rbenv/rbenv.git ~/.rbenv \
-    && sudo echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc && \
+    && sudo echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc \
     && sudo echo 'eval "$(rbenv init -)"' >> ~/.bashrc
 
 ENV PATH /root/.rbenv/shims:/root/.rbenv/bin:$PATH

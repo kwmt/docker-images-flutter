@@ -21,6 +21,7 @@ RUN sudo git clone https://github.com/rbenv/rbenv.git ~/.rbenv && \
     && sudo git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build \
     && ls -l ~/.rbenv \
     && ls -l ~/.rbenv/bin \
+    && sudo .rbenv/plugins/ruby-build/install.sh \
     && sudo ~/.rbenv/bin/rbenv install 2.7.0 \
     && sudo ~/.rbenv/bin/rbenv global 2.7.0 \
     && sudo ruby --version \

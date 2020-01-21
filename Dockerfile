@@ -8,10 +8,12 @@ RUN sudo apt-get update \
 RUN sudo apt-get update \
     && sudo apt-get install git \
     && sudo git clone https://github.com/rbenv/rbenv.git ~/.rbenv \
-    && sudo echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile \
-    && sudo echo 'eval "$(rbenv init -)"' >> ~/.bash_profile \
-    && sudo source ~/.bash_profile \
-    && sudo git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build \
+    && sudo echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc && \
+    && sudo echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+
+ENV PATH /root/.rbenv/shims:/root/.rbenv/bin:$PATH
+
+RUN sudo git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build \
     && sudo curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-doctor | bash rbenv -v \
     && sudo rbenv install 2.7.0 \
     && sudo ruby --version \

@@ -18,7 +18,7 @@ RUN sudo git clone https://github.com/rbenv/rbenv.git ~/.rbenv && \
     sudo echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc && \
     sudo echo 'eval "$(rbenv init -)"' >> ~/.bashrc
 
-ENV PATH /root/.rbenv/shims:/root/.rbenv/bin:$PATH
+ENV PATH ~/.rbenv/shims:~/.rbenv/bin:$PATH
 
 # Install ruby-build & ruby
 RUN sudo git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build \

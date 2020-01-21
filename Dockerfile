@@ -17,7 +17,7 @@ RUN sudo apt-get update \
 RUN sudo git clone https://github.com/rbenv/rbenv.git ~/.rbenv && \
     sudo echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc && \
     sudo echo 'eval "$(rbenv init -)"' >> ~/.bashrc \
-    && exec $SHELL
+    && exec $SHELL \
     && sudo git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build \
     && sudo rbenv install 2.7.0 \
     && sudo rbenv global 2.7.0 \

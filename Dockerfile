@@ -4,18 +4,26 @@ RUN sudo apt-get update \
     && sudo apt-get install -y --allow-unauthenticated --no-install-recommends lib32stdc++6 libstdc++6 libglu1-mesa locales \
     && sudo rm -rf /var/lib/apt/lists/*
 
-# install ruby
-RUN sudo apt-get update \
-    && sudo apt-get install git \
-    && sudo git clone https://github.com/rbenv/rbenv.git ~/.rbenv \
-    && sudo echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc \
-    && sudo echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+## Require to install ruby
+RUN apt-get update && \
+    apt-get install -y \
+    git \
+    build-essential \
+    libssl-dev \
+    libreadline-dev \
+    zlib1g-dev
 
-ENV PATH ~/.rbenv/shims:~/.rbenv/bin:$PATH
+# Install rbenv
+RUN git clone https://github.com/rbenv/rbenv.git ~/.rbenv && \
+    echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc && \
+    echo 'eval "$(rbenv init -)"' >> ~/.bashrc
 
-RUN sudo git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build \
-    && sudo curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-doctor | bash rbenv -v \
-    && sudo rbenv install 2.7.0 \
+ENV PATH /root/.rbenv/shims:/root/.rbenv/bin:$PATH
+
+# Install ruby-build & ruby
+RUN git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build \
+    && ~/.rbenv/bin/rbenv install 2.7.0 \
+    && ~/.rbenv/bin/rbenv global 2.7.0 \
     && sudo ruby --version \
     && sudo gem install fastlane -NV
 

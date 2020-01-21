@@ -1,7 +1,7 @@
 FROM cirrusci/android-sdk:28
 
 RUN sudo apt-get update \
-    && sudo apt-get install -y --only-upgrade ruby \
+    && sudo apt-get install -y ruby-full \
     && sudo apt-get install -y --allow-unauthenticated --no-install-recommends lib32stdc++6 libstdc++6 libglu1-mesa locales \
     && sudo rm -rf /var/lib/apt/lists/*
 

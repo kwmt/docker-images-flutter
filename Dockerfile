@@ -12,8 +12,7 @@ RUN apt-get update \
     && echo 'eval "$(rbenv init -)"' >> ~/.bash_profile \
     && source ~/.bash_profile \
     && git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build \
-    && curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-doctor | bash
-rbenv -v
+    && curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-doctor | bash rbenv -v
     && rbenv install 2.7.0 \
     && ruby --version \
     && sudo gem install fastlane -NV

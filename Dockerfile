@@ -11,7 +11,7 @@ RUN touch ~/.android/repositories.cfg \
     && sdkmanager "tools" \
     && sdkmanager "platform-tools"
 
-RUN sudo gem install fastlane -NV
+RUN ruby --version  && sudo gem install fastlane -NV
 
 RUN sudo locale-gen en_US "en_US.UTF-8" \
     && sudo dpkg-reconfigure locales

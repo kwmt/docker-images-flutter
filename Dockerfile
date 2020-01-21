@@ -11,7 +11,7 @@ RUN sudo apt-get update \
     && sudo echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc \
     && sudo echo 'eval "$(rbenv init -)"' >> ~/.bashrc
 
-ENV PATH /root/.rbenv/shims:/root/.rbenv/bin:$PATH
+ENV PATH ~/.rbenv/shims:~/.rbenv/bin:$PATH
 
 RUN sudo git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build \
     && sudo curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-doctor | bash rbenv -v \

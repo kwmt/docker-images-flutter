@@ -16,16 +16,17 @@ RUN sudo apt-get update \
 # Install rbenv
 RUN sudo git clone https://github.com/rbenv/rbenv.git ~/.rbenv && \
     sudo echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc && \
-    sudo echo 'eval "$(rbenv init -)"' >> ~/.bashrc
-
-ENV PATH ~/.rbenv/shims:~/.rbenv/bin:$PATH
-
-# Install ruby-build & ruby
-RUN sudo git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build \
-    && sudo ~/.rbenv/bin/rbenv install 2.7.0 \
-    && sudo ~/.rbenv/bin/rbenv global 2.7.0 \
+    sudo echo 'eval "$(rbenv init -)"' >> ~/.bashrc \
+    && exec $SHELL
+    && sudo git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build \
+    && sudo rbenv install 2.7.0 \
+    && sudo rbenv global 2.7.0 \
     && sudo ruby --version \
     && sudo gem install fastlane -NV
+
+# ENV PATH ~/.rbenv/shims:~/.rbenv/bin:$PATH
+
+# Install ruby-build & ruby
 
 # https://github.com/flutter/flutter/issues/18593#issuecomment-458375730
 # Those tools are absolutely required for flutter to build APKs
